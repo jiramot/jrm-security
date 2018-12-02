@@ -20,9 +20,9 @@ data class JwtConfiguration(
     var refreshTokenExpTime: Duration = Duration.ofHours(24)
 ) {
 
-  @Bean(name = ["jwtValidation"])
-  @ConditionalOnMissingBean
-  fun jtiValidation(): JwtValidation {
-    return DefaultJwtValidation()
-  }
+    @Bean
+    @ConditionalOnMissingBean
+    fun jwtValidation(): JwtValidation {
+        return DefaultJwtValidation()
+    }
 }
