@@ -124,11 +124,9 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'weibeld'
-                        name 'Daniel Weibel'
-                        email 'daniel@weibeld.net'
-                        organization 'weibeld'
-                        organizationUrl 'http://weibeld.net'
+                        id 'jiramot'
+                        name 'Watchanon Numnam'
+                        email 'jiramot@gmail.com'
                     }
                 }
             }
