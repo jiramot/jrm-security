@@ -1,7 +1,7 @@
-package im.jrm.security
+package com.github.jiramot.security
 
-import im.jrm.security.config.JwtConfiguration
-import im.jrm.security.model.UserContext
+import com.github.jiramot.security.config.JwtConfiguration
+import com.github.jiramot.security.model.UserContext
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Autowired

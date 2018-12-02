@@ -1,4 +1,4 @@
-package im.jrm.security.config
+package com.github.jiramot.security.config
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean

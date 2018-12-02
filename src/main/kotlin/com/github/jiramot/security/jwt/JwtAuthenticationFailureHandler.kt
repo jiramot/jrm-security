@@ -1,4 +1,4 @@
-package im.jrm.security.jwt
+package com.github.jiramot.security.jwt
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.MessageSource

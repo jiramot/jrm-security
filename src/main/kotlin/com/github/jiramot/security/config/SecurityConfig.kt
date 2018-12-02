@@ -1,10 +1,10 @@
-package im.jrm.security.config
+package com.github.jiramot.security.config
 
-import im.jrm.security.jwt.JwtAuthenticationFailureHandler
-import im.jrm.security.jwt.JwtAuthenticationProvider
-import im.jrm.security.jwt.JwtHeaderTokenExtractor
-import im.jrm.security.jwt.JwtTokenAuthenticationProcessingFilter
-import im.jrm.security.util.SkipPathRequestMatcher
+import com.github.jiramot.security.jwt.JwtAuthenticationFailureHandler
+import com.github.jiramot.security.jwt.JwtAuthenticationProvider
+import com.github.jiramot.security.jwt.JwtHeaderTokenExtractor
+import com.github.jiramot.security.jwt.JwtTokenAuthenticationProcessingFilter
+import com.github.jiramot.security.util.SkipPathRequestMatcher
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.security.authentication.AuthenticationManager
@@ -54,7 +54,11 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
       pattern: String
   ): JwtTokenAuthenticationProcessingFilter {
     val matcher = SkipPathRequestMatcher(pathsToSkip, pattern)
-    val filter = JwtTokenAuthenticationProcessingFilter(matcher, jwtAuthenticationFailureHandler, tokenExtractor)
+    val filter = JwtTokenAuthenticationProcessingFilter(
+        matcher,
+        jwtAuthenticationFailureHandler,
+        tokenExtractor
+    )
     filter.setAuthenticationManager(this.authenticationManager)
     return filter
   }

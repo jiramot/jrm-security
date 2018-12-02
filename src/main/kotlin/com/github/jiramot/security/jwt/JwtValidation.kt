@@ -1,4 +1,4 @@
-package im.jrm.security.jwt
+package com.github.jiramot.security.jwt
 
 import com.nimbusds.jwt.JWTClaimsSet
 

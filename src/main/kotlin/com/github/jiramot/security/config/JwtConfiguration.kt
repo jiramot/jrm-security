@@ -1,7 +1,7 @@
-package im.jrm.security.config
+package com.github.jiramot.security.config
 
-import im.jrm.security.jwt.DefaultJwtValidation
-import im.jrm.security.jwt.JwtValidation
+import com.github.jiramot.security.jwt.DefaultJwtValidation
+import com.github.jiramot.security.jwt.JwtValidation
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.convert.DurationUnit

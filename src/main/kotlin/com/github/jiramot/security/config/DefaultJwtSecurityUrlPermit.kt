@@ -1,4 +1,4 @@
-package im.jrm.security.config
+package com.github.jiramot.security.config
 
 class DefaultJwtSecurityUrlPermit : JwtSecurityUrlPermit {
   override fun urls() = arrayOf(

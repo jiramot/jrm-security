@@ -1,4 +1,4 @@
-package im.jrm.security.jwt
+package com.github.jiramot.security.jwt
 
 import org.springframework.security.authentication.AuthenticationServiceException
 import org.springframework.stereotype.Component

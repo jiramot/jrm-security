@@ -1,5 +1,7 @@
-package im.jrm.security.model
+package com.github.jiramot.security.jwt
 
+import com.github.jiramot.security.model.RawAccessJwtToken
+import com.github.jiramot.security.model.UserContext
 import org.springframework.security.authentication.AbstractAuthenticationToken
 import org.springframework.security.core.GrantedAuthority
 

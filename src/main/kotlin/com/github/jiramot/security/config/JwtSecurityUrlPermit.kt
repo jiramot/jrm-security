@@ -1,4 +1,4 @@
-package im.jrm.security.config
+package com.github.jiramot.security.config
 
 interface JwtSecurityUrlPermit {
   fun urls(): Array<String>

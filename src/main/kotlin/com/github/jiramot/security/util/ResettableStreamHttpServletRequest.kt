@@ -1,4 +1,4 @@
-package im.jrm.security.util
+package com.github.jiramot.security.util
 
 import org.apache.commons.io.IOUtils
 import java.io.BufferedReader

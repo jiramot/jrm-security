@@ -1,7 +1,7 @@
-package im.jrm.security.jwt
+package com.github.jiramot.security.jwt
 
-import im.jrm.security.model.JwtAuthenticationToken
-import im.jrm.security.model.RawAccessJwtToken
+import com.github.jiramot.security.model.JwtAuthenticationToken
+import com.github.jiramot.security.model.RawAccessJwtToken
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.core.context.SecurityContextHolder
