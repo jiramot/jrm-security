@@ -12,6 +12,6 @@ interface TokenService {
     }
 
     fun createAccessToken(userContext: UserContext): String
-
+    fun createRefreshToken(userContext: UserContext): String
     fun verify(token: String): UserContext
 }

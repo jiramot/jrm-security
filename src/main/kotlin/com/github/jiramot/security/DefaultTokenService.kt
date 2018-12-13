@@ -28,7 +28,6 @@ class DefaultTokenService : TokenService {
     val now = Date()
     val expireTime = now.time + jwtConfig.tokenExpirationTime.toMillis()
 
-
     return Jwts.builder()
         .setId(UUID.randomUUID().toString())
         .setIssuer(ISSUER)
@@ -38,6 +37,24 @@ class DefaultTokenService : TokenService {
         .claim(CLAIM_SCOPE, userContext.scope)
         .claim(CLAIM_PHONE_NUMBER, userContext.phoneNumber)
         .claim(CLAIM_ID_CARD, userContext.idCard)
+        .signWith(signingKey, signatureAlgorithm)
+        .compact()
+  }
+
+  override fun createRefreshToken(userContext: UserContext): String {
+    val signatureAlgorithm = SignatureAlgorithm.HS256
+    val apiKeySecretBytes = DatatypeConverter.parseBase64Binary(jwtConfig.secret)
+    val signingKey = SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.jcaName)
+
+    val now = Date()
+    val expireTime = now.time + jwtConfig.refreshTokenExpTime.toMillis()
+    return Jwts.builder()
+        .setId(UUID.randomUUID().toString())
+        .setIssuer(ISSUER)
+        .setIssuedAt(now)
+        .setSubject(userContext.id)
+        .setExpiration(Date(expireTime))
+        .claim(CLAIM_SCOPE, arrayListOf("refresh"))
         .signWith(signingKey, signatureAlgorithm)
         .compact()
   }
