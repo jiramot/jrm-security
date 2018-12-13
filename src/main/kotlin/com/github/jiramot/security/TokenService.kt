@@ -6,9 +6,7 @@ interface TokenService {
     companion object {
         const val ISSUER = "https://security.irm.im"
         const val CLAIM_SCOPE = "scope"
-        const val CLAIM_ID_CARD = "id_card"
-        const val CLAIM_PHONE_NUMBER = "phone_number"
-        const val CLAIM_PEOPLE_ID = "people_id"
+        const val CLAIM_PAYLOAD = "payload"
     }
 
     fun createAccessToken(userContext: UserContext): String
