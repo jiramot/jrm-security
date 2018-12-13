@@ -58,12 +58,7 @@ class DefaultTokenService(var jwtConfig: JwtConfiguration) : TokenService {
         .setSigningKey(DatatypeConverter.parseBase64Binary(jwtConfig.secret))
         .parseClaimsJws(token).getBody()
     val scope: ArrayList<String> = claims.get(CLAIM_SCOPE) as? ArrayList<String> ?: arrayListOf()
-//    val claimPayload = claims.get(CLAIM_PAYLOAD)
-//    val payload: HashMap<String, String> = when (claimPayload) {
-//      null -> hashMapOf()
-//      else -> claimPayload as HashMap<String, String>
-//    }
-    val payload = claims.get(CLAIM_SCOPE) as? HashMap<String, String> ?: hashMapOf<String, String>()
+    val payload = claims.get(CLAIM_PAYLOAD) as? HashMap<String, String> ?: hashMapOf<String, String>()
     return UserContext(claims.subject, scope, payload)
   }
 }
