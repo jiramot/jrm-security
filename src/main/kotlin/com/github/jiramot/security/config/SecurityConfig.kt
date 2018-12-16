@@ -14,6 +14,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.CorsConfigurationSource
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class SecurityConfig : WebSecurityConfigurerAdapter() {
@@ -34,9 +38,18 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
   @Autowired
   lateinit var tokenExtractor: JwtHeaderTokenExtractor
 
+  @Bean
+  fun corsConfigurationSource(): CorsConfigurationSource {
+    val source = UrlBasedCorsConfigurationSource()
+    source.registerCorsConfiguration("/**", CorsConfiguration().applyPermitDefaultValues())
+    return source
+  }
+
   override fun configure(http: HttpSecurity) {
 
-    http.csrf().disable()
+    http
+        .cors().and()
+        .csrf().disable()
         .sessionManagement()
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
